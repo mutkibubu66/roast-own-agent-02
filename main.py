@@ -35,6 +35,7 @@ def validate(line: str) -> None:
 
 def main() -> None:
     validate(LINE)
+    assert "\n" not in LINE  # one line: no embedded newline may reach the file
     os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
     with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
         f.write(LINE + "\n")
